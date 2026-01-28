@@ -1,4 +1,4 @@
-# Android Camera Embed
+# Obsidian Android Camera Embed
 
 This plugin is Android-only. It uses the `capture` attribute to open the Android camera and is not supported on iOS or desktop.
 
