@@ -95,7 +95,7 @@ export default class AndroidCameraEmbedPlugin extends Plugin {
       input.type = "file";
       input.accept = "image/*";
       input.capture = "environment";
-      input.style.display = "none";
+      input.addClass("android-camera-hidden");
 
       const timeoutId = window.setTimeout(() => {
         input.remove();
@@ -228,11 +228,11 @@ class AndroidCameraEmbedSettingTab extends PluginSettingTab {
     new Setting(containerEl)
       .setName("Photos folder")
       .setDesc(
-        "Optional. Use a vault-relative path like Attachments/Camera. Leave blank to store next to the note."
+        "Optional. Use a vault-relative path like attachments/camera. Leave blank to store next to the note."
       )
       .addText((text) =>
         text
-          .setPlaceholder("Attachments/Camera")
+          .setPlaceholder("attachments/camera")
           .setValue(this.plugin.settings.photosFolder)
           .onChange(async (value) => {
             this.plugin.settings.photosFolder = value;

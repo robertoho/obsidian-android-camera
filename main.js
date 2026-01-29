@@ -87,7 +87,7 @@ var AndroidCameraEmbedPlugin = class extends import_obsidian.Plugin {
       input.type = "file";
       input.accept = "image/*";
       input.capture = "environment";
-      input.style.display = "none";
+      input.addClass("android-camera-hidden");
       const timeoutId = window.setTimeout(() => {
         input.remove();
         resolve(null);
@@ -190,9 +190,9 @@ var AndroidCameraEmbedSettingTab = class extends import_obsidian.PluginSettingTa
     containerEl.empty();
     new import_obsidian.Setting(containerEl).setName("Android only").setDesc("This plugin is intended for Android and is not supported on iOS or desktop.");
     new import_obsidian.Setting(containerEl).setName("Photos folder").setDesc(
-      "Optional. Use a vault-relative path like Attachments/Camera. Leave blank to store next to the note."
+      "Optional. Use a vault-relative path like attachments/camera. Leave blank to store next to the note."
     ).addText(
-      (text) => text.setPlaceholder("Attachments/Camera").setValue(this.plugin.settings.photosFolder).onChange(async (value) => {
+      (text) => text.setPlaceholder("attachments/camera").setValue(this.plugin.settings.photosFolder).onChange(async (value) => {
         this.plugin.settings.photosFolder = value;
         await this.plugin.saveSettings();
       })
